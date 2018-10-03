@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+<h3>Makaleler</h3>
+<hr>
+{% if articles %}
+<form action="/search" method = "post">
+  <input type="text" name = "keyword" class="input-sm" maxlength="64" placeholder="Makaleni bul..">
+  <button type="submit" class="btn btn-info">Ara</button>
+</form>
+<hr>
+<ul class="list-group">
+        {% for article in articles %}
+        <li class = "list-group-item"><a href="article/{{article.id}}">{{article.title}}</a>----------->>>>>>>>>>>Oluşturulma tarihi: {{article.created_date}}</li>
+        {% endfor %}
+      </ul>
+{% else %}
+<div class = "alert alert-danger">Bloğunuzda makale bulunmamaktadır.</div>
+
+{% endif %}
+
+
+
+
+{% endblock  %}

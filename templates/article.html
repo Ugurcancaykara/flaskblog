@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if article %}
+<h4>{{article.title}}</h4>
+<hr>
+<strong>Yazar: </strong>{{article.author}}
+<hr>
+<strong>Tarih: </strong>{{article.created_date}}
+<hr>
+{{article.content|safe}}
+<br><br><br><hr>
+<a href="/edit/{{article.id}}" class = "btn btn-primary">Güncelle</a>
+<a href="/delete/{{article.id}}" class = "btn btn-primary">Sil</a>
+{% else %}
+<div class = "alert alert-warning">
+    Makale bulunmamaktadır..
+</div>
+{% endif %}
+
+
+{% endblock  %}
